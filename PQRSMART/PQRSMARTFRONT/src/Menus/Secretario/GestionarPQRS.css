@@ -1,0 +1,71 @@
+.GestionarPQRS{
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ebeef3;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    grid-template-rows: 0.3fr;
+    grid-auto-columns: 1fr;
+    gap: 0px 2px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "menus cuerpos";
+}
+
+.menus {
+    grid-area: menus;
+}
+
+
+.cuerpos {
+    grid-area: cuerpos;
+
+}
+
+.title {
+    font-size: 27px;
+    color: #ffffff;
+    align-items: center;
+    text-align: center;
+    margin-left: 30PX;
+}
+.form {
+    display: flex;
+    justify-content: center;
+}
+
+.solicitud-forms {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: beige solid 1px;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+}
+.Botone button {
+    background-color: #ec7548;
+    /* Color de fondo del botón */
+    color: white;
+    /* Color del texto del botón */
+    border: none;
+    /* Sin borde alrededor del botón */
+    padding: 10px 20px;
+    /* Espaciado interno (padding) */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    font-family: 'Montserrat', sans-serif;
+    /* Fuente del botón */
+    font-size: 17px;
+    /* Tamaño de la fuente */
+    cursor: pointer;
+    /* Cambia el cursor cuando pasa sobre el botón */
+    transition: background-color 0.3s, transform 0.2s;
+    /* Transiciones suaves para el color y la transformación */
+    margin-bottom: 20px;
+    /* Espacio debajo del campo */
+    width: 30%;
+    font-weight: bold;
+  }
+  

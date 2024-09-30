@@ -1,0 +1,83 @@
+.CrearDependencias{
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr;
+    grid-template-rows: 0.3fr;
+    grid-auto-columns: 1fr;
+    gap: 0px 2px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "menus cuerpos";
+}
+
+.menus {
+    grid-area: menus;
+}
+
+
+.cuerpos {
+    grid-area: cuerpos;
+
+}
+
+.title {
+    font-size: 27px;
+    color: #ffffff;
+    align-items: center;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.solicitud-form {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: beige solid 1px;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    justify-content: center;
+}
+
+.input-box1{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+    margin-top: 180px;
+    
+}
+
+.input-box1 label {
+    margin-bottom: 5px;
+    margin-left: 30px;
+    padding-right: 30px;
+    font-size: 15px;
+}
+
+.input-box1 input{
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-right: 30px;
+}
+
+.btnCrearCat{
+    margin-top: 180px;
+    background-color: #ec7548;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 50%;
+    font-size: 16px;
+}
