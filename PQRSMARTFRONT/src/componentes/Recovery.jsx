@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import './Recovery.css';
 import axios from "axios";
-import Popup from '../componentes/Popup'
+import Popup from '../componentes/Popup';
 
 export const Recovery = () => {
-
     const [email, setEmail] = useState('');
     const [isLogged, setIsLogged] = useState('');
     const [showPopup, setShowPopup] = useState(false);
     const [error, setError] = useState('');
+
     const checkLoginStatus = () => {
         const logged = localStorage.getItem('loggetPQRSMART') === 'true';
         setIsLogged(logged);
@@ -26,10 +26,8 @@ export const Recovery = () => {
                 }
             }
         }
-
     };
 
-    // Cargar el archivo Gradient.js
     useEffect(() => {
         checkLoginStatus();
         const script = document.createElement('script');
@@ -38,7 +36,6 @@ export const Recovery = () => {
         document.body.appendChild(script);
 
         script.onload = () => {
-            // Inicializar el gradiente una vez que el script haya cargado
             const gradient = new Gradient();
             gradient.initGradient('#gradient-canvas');
         };
@@ -50,17 +47,16 @@ export const Recovery = () => {
 
     const handleResetRequest = async () => {
         try {
-            console.log(email)
+            console.log(email);
             const response = await axios.post('http://localhost:8080/forgot-password/email', { email });
-            setError("Exito");
+            setError("Éxito");
             setShowPopup(true); // Mostrar popup
             return;
-
         } catch (error) {
             console.error('Error al solicitar restablecimiento de contraseña:', error);
-
         }
     };
+
     if (isLogged) {
         return null; // o un spinner si quieres mostrar algo mientras se redirige
     }
@@ -68,15 +64,17 @@ export const Recovery = () => {
     const closePopup = () => {
         setShowPopup(false);
     };
+
     return (
         <div className="recovery">
-            <canvas id="gradient-canvas" style={{ width: '100vw', height: '100vh', position: 'absolute', zIndex: -1 }}></canvas>
+            <canvas id="gradient-canvas"
+                    style={{width: '100vw', height: '100vh', position: 'absolute', zIndex: -1}}></canvas>
             <div className="reco">
-
-                <h2>¿Olvidate tu contraseña?</h2>
-                <label>Para recuperar tu contraseña ingrese su Email o Numero</label><br /><br />
+                <h2>¿Olvidaste tu contraseña?</h2>
+                <label>Para recuperar tu contraseña, ingresa tu Email o Número:</label>
+                <br/>
                 <div className="input-box2">
-                    <label htmlFor="Email">Email:</label><br />
+                    <label htmlFor="email">Email:</label>
                     <input
                         type="text"
                         id="email"
@@ -85,18 +83,16 @@ export const Recovery = () => {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
-                </div > <br />
-                <div className="btnSolicitar">
-                    <button onClick={handleResetRequest}> Solicitar</button>
                 </div>
-
+                <div className="btnSolicitar">
+                    <button onClick={handleResetRequest}>Solicitar</button>
+                </div>
                 <div className="PAndA">
-                    <p>¿Ya tiene cuenta? <a href="/Login">Inicia Sesion</a></p>
-                </div><br />
-
+                    <p>¿Ya tienes cuenta? <a href="/Login">Inicia Sesión</a></p>
+                </div>
             </div>
-            {showPopup && <Popup message={error} onClose={closePopup} />}
+            {showPopup && <Popup message={error} onClose={closePopup}/>}
         </div>
-
-    )
+    );
 }
+
